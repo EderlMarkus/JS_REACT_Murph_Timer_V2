@@ -1,0 +1,48 @@
+body {
+  background: #000 !important;
+  color: #fff !important;
+  margin: 5% !important;
+  .App {
+    text-align: center;
+  }
+  .wrapper {
+    margin-top: 10vh;
+    &.input.fadeout {
+      animation-name: fadeout;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+    &.fadein {
+      animation-name: fadein;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+    }
+    h3 {
+      text-decoration: underline;
+    }
+    hr {
+      border: solid 1px #fff;
+      width: 100%;
+    }
+  }
+}
+
+/* The animation code */
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* The animation code */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
