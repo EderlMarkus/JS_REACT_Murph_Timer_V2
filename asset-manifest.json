@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/JS_REACT_Murph_Timer_V2/static/css/main.5807c6cb.chunk.css",
+    "main.js": "/JS_REACT_Murph_Timer_V2/static/js/main.2b0a8176.chunk.js",
+    "main.js.map": "/JS_REACT_Murph_Timer_V2/static/js/main.2b0a8176.chunk.js.map",
+    "runtime-main.js": "/JS_REACT_Murph_Timer_V2/static/js/runtime-main.a6b71c0d.js",
+    "runtime-main.js.map": "/JS_REACT_Murph_Timer_V2/static/js/runtime-main.a6b71c0d.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/JS_REACT_Murph_Timer_V2/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.11d30284.chunk.js": "/JS_REACT_Murph_Timer_V2/static/js/2.11d30284.chunk.js",
+    "static/js/2.11d30284.chunk.js.map": "/JS_REACT_Murph_Timer_V2/static/js/2.11d30284.chunk.js.map",
+    "index.html": "/JS_REACT_Murph_Timer_V2/index.html",
+    "precache-manifest.49c5945278189e27a9aec572b5e6f022.js": "/JS_REACT_Murph_Timer_V2/precache-manifest.49c5945278189e27a9aec572b5e6f022.js",
+    "service-worker.js": "/JS_REACT_Murph_Timer_V2/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/JS_REACT_Murph_Timer_V2/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.5807c6cb.chunk.css.map": "/JS_REACT_Murph_Timer_V2/static/css/main.5807c6cb.chunk.css.map",
+    "static/js/2.11d30284.chunk.js.LICENSE.txt": "/JS_REACT_Murph_Timer_V2/static/js/2.11d30284.chunk.js.LICENSE.txt",
+    "static/media/BeepNext.mp3": "/JS_REACT_Murph_Timer_V2/static/media/BeepNext.238acd50.mp3",
+    "static/media/beep.mp3": "/JS_REACT_Murph_Timer_V2/static/media/beep.aab3f7ea.mp3",
+    "static/media/beepNext.mp3": "/JS_REACT_Murph_Timer_V2/static/media/beepNext.238acd50.mp3",
+    "static/media/five.mp3": "/JS_REACT_Murph_Timer_V2/static/media/five.72999ca1.mp3",
+    "static/media/ten.mp3": "/JS_REACT_Murph_Timer_V2/static/media/ten.b24f71d5.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a6b71c0d.js",
+    "static/css/2.47e06e2e.chunk.css",
+    "static/js/2.11d30284.chunk.js",
+    "static/css/main.5807c6cb.chunk.css",
+    "static/js/main.2b0a8176.chunk.js"
+  ]
+}
