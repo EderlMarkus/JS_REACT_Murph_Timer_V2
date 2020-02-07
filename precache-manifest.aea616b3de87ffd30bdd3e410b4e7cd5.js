@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8276ba241ecd06b5d3ba10d01c62bdbb",
+    "revision": "2f82b8c05a9763f8d1293c470615efe1",
     "url": "/JS_REACT_Murph_Timer_V2/index.html"
   },
   {
-    "revision": "8a24c22bb713d150e0f0",
+    "revision": "0eb4e26c1eb06f6de292",
     "url": "/JS_REACT_Murph_Timer_V2/static/css/2.47e06e2e.chunk.css"
   },
   {
-    "revision": "8d4d83c848703d3fa5e1",
+    "revision": "320f790d66efd46f32a3",
     "url": "/JS_REACT_Murph_Timer_V2/static/css/main.01a856d0.chunk.css"
   },
   {
-    "revision": "8a24c22bb713d150e0f0",
-    "url": "/JS_REACT_Murph_Timer_V2/static/js/2.2c67febd.chunk.js"
+    "revision": "0eb4e26c1eb06f6de292",
+    "url": "/JS_REACT_Murph_Timer_V2/static/js/2.66053033.chunk.js"
   },
   {
     "revision": "bf23039b4e70a07c5aeb1b4010df3572",
-    "url": "/JS_REACT_Murph_Timer_V2/static/js/2.2c67febd.chunk.js.LICENSE.txt"
+    "url": "/JS_REACT_Murph_Timer_V2/static/js/2.66053033.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8d4d83c848703d3fa5e1",
-    "url": "/JS_REACT_Murph_Timer_V2/static/js/main.7505a044.chunk.js"
+    "revision": "320f790d66efd46f32a3",
+    "url": "/JS_REACT_Murph_Timer_V2/static/js/main.10d2850b.chunk.js"
   },
   {
     "revision": "2dfdd40a6a8d7116df76",
@@ -30,6 +30,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "238acd50a6dd935336d61e14235449bf",
     "url": "/JS_REACT_Murph_Timer_V2/static/media/beepNext.238acd50.mp3"
+  },
+  {
+    "revision": "c5cf8aced541394ceba95d5311120208",
+    "url": "/JS_REACT_Murph_Timer_V2/static/media/do_pullups.c5cf8ace.mp3"
+  },
+  {
+    "revision": "8a1da1056950404d867d505012a76da5",
+    "url": "/JS_REACT_Murph_Timer_V2/static/media/do_pushups.8a1da105.mp3"
+  },
+  {
+    "revision": "4aa08de151817ce29af455e7f2b26f53",
+    "url": "/JS_REACT_Murph_Timer_V2/static/media/do_squats.4aa08de1.mp3"
   },
   {
     "revision": "72999ca1adb3507592064c5d248a1c33",

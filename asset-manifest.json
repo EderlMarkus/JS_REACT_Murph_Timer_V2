@@ -1,20 +1,23 @@
 {
   "files": {
     "main.css": "/JS_REACT_Murph_Timer_V2/static/css/main.01a856d0.chunk.css",
-    "main.js": "/JS_REACT_Murph_Timer_V2/static/js/main.7505a044.chunk.js",
-    "main.js.map": "/JS_REACT_Murph_Timer_V2/static/js/main.7505a044.chunk.js.map",
+    "main.js": "/JS_REACT_Murph_Timer_V2/static/js/main.10d2850b.chunk.js",
+    "main.js.map": "/JS_REACT_Murph_Timer_V2/static/js/main.10d2850b.chunk.js.map",
     "runtime-main.js": "/JS_REACT_Murph_Timer_V2/static/js/runtime-main.a6b71c0d.js",
     "runtime-main.js.map": "/JS_REACT_Murph_Timer_V2/static/js/runtime-main.a6b71c0d.js.map",
     "static/css/2.47e06e2e.chunk.css": "/JS_REACT_Murph_Timer_V2/static/css/2.47e06e2e.chunk.css",
-    "static/js/2.2c67febd.chunk.js": "/JS_REACT_Murph_Timer_V2/static/js/2.2c67febd.chunk.js",
-    "static/js/2.2c67febd.chunk.js.map": "/JS_REACT_Murph_Timer_V2/static/js/2.2c67febd.chunk.js.map",
+    "static/js/2.66053033.chunk.js": "/JS_REACT_Murph_Timer_V2/static/js/2.66053033.chunk.js",
+    "static/js/2.66053033.chunk.js.map": "/JS_REACT_Murph_Timer_V2/static/js/2.66053033.chunk.js.map",
     "index.html": "/JS_REACT_Murph_Timer_V2/index.html",
-    "precache-manifest.1cd269373100f6415246309632234018.js": "/JS_REACT_Murph_Timer_V2/precache-manifest.1cd269373100f6415246309632234018.js",
+    "precache-manifest.aea616b3de87ffd30bdd3e410b4e7cd5.js": "/JS_REACT_Murph_Timer_V2/precache-manifest.aea616b3de87ffd30bdd3e410b4e7cd5.js",
     "service-worker.js": "/JS_REACT_Murph_Timer_V2/service-worker.js",
     "static/css/2.47e06e2e.chunk.css.map": "/JS_REACT_Murph_Timer_V2/static/css/2.47e06e2e.chunk.css.map",
     "static/css/main.01a856d0.chunk.css.map": "/JS_REACT_Murph_Timer_V2/static/css/main.01a856d0.chunk.css.map",
-    "static/js/2.2c67febd.chunk.js.LICENSE.txt": "/JS_REACT_Murph_Timer_V2/static/js/2.2c67febd.chunk.js.LICENSE.txt",
+    "static/js/2.66053033.chunk.js.LICENSE.txt": "/JS_REACT_Murph_Timer_V2/static/js/2.66053033.chunk.js.LICENSE.txt",
     "static/media/beepNext.mp3": "/JS_REACT_Murph_Timer_V2/static/media/beepNext.238acd50.mp3",
+    "static/media/do_pullups.mp3": "/JS_REACT_Murph_Timer_V2/static/media/do_pullups.c5cf8ace.mp3",
+    "static/media/do_pushups.mp3": "/JS_REACT_Murph_Timer_V2/static/media/do_pushups.8a1da105.mp3",
+    "static/media/do_squats.mp3": "/JS_REACT_Murph_Timer_V2/static/media/do_squats.4aa08de1.mp3",
     "static/media/five.mp3": "/JS_REACT_Murph_Timer_V2/static/media/five.72999ca1.mp3",
     "static/media/four.mp3": "/JS_REACT_Murph_Timer_V2/static/media/four.721da7c1.mp3",
     "static/media/one.mp3": "/JS_REACT_Murph_Timer_V2/static/media/one.11065319.mp3",
@@ -25,8 +28,8 @@
   "entrypoints": [
     "static/js/runtime-main.a6b71c0d.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.2c67febd.chunk.js",
+    "static/js/2.66053033.chunk.js",
     "static/css/main.01a856d0.chunk.css",
-    "static/js/main.7505a044.chunk.js"
+    "static/js/main.10d2850b.chunk.js"
   ]
 }
