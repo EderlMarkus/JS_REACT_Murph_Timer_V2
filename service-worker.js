@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/JS_REACT_Murph_Timer_V2/precache-manifest.66438fe5e78edf06068890227a09deb7.js"
+  "/JS_REACT_Murph_Timer_V2/precache-manifest.8bd25208387b848f29d5b723642e17e9.js"
 );
 
 self.addEventListener('message', (event) => {
