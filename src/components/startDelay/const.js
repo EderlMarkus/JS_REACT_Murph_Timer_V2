@@ -1,1 +1,1 @@
-export const delayInSeconds = 3;
+export const delayInSeconds = 10;

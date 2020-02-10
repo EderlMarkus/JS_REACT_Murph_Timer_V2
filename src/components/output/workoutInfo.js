@@ -118,9 +118,18 @@ class WorkoutInfo extends Component {
             <h4 className="m-auto"> Total</h4>
           </Row>
           <Row>
-            <Col>Pullups: {this.props.finishedPullups}</Col>
-            <Col>Pushups: {this.props.finishedPushups}</Col>
-            <Col>Squats: {this.props.finishedSquats}</Col>
+            <Col>
+              Pullups: <br />
+              {this.props.finishedPullups}
+            </Col>
+            <Col>
+              Pushups: <br />
+              {this.props.finishedPushups}
+            </Col>
+            <Col>
+              Squats: <br />
+              {this.props.finishedSquats}
+            </Col>
           </Row>
           <hr></hr>
           <Row>

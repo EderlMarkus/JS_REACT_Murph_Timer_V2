@@ -22,13 +22,13 @@ class Timer extends Component {
       if (this.props.currentSetTime !== 0) {
         this.props.setCurrentSetTime(this.props.currentSetTime - 1);
         SOUNDS.saySeconds(this.props.currentSetTime);
+        let nextExercise;
         if (this.getCurrentExercise().isComplete) {
-          SOUNDS.sayNextExercise(
-            this.props.currentSetTime,
-            8,
-            this.getCurrentExercise().getNextExercise()
-          );
+          nextExercise = this.getCurrentExercise().getNextExercise();
+        } else {
+          nextExercise = this.props.currentExercise;
         }
+        SOUNDS.sayNextExercise(this.props.currentSetTime, 8, nextExercise);
       } else {
         this.handleNextSet();
       }
@@ -175,7 +175,7 @@ class Timer extends Component {
 
       this.props.setCurrentRound(this.props.currentRound + 1);
 
-      if (this.props.currentRound > getTotalRounds()) {
+      if (this.props.currentRound > getTotalRounds(this.props.split)) {
         SOUNDS.sayWorkoutFinished();
       }
     }
