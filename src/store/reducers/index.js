@@ -14,6 +14,9 @@ import CurrentRoundReducer from './currentRound_reducer';
 import CurrentExerciseReducer from './currentExercise_reducer';
 import AdjustedTimeToFinish from './adjustedTimeToFinish_reducer';
 import FadeInInputReducer from './fadeInInput_reducer';
+import FinishedPullupsReducer from './finishedPullupsReducer';
+import FinishedPushupsReducer from './finishedPushupsReducer';
+import FinishedSquatsReducer from './finishedSquatsReducer';
 
 import { combineReducers } from 'redux';
 
@@ -33,5 +36,8 @@ export const rootReducer = combineReducers({
   current_round_reducer: CurrentRoundReducer,
   current_exercise_reducer: CurrentExerciseReducer,
   adjusted_time_to_finish_reducer: AdjustedTimeToFinish,
-  fade_in_input_reducer: FadeInInputReducer
+  fade_in_input_reducer: FadeInInputReducer,
+  finished_pullups_reducer: FinishedPullupsReducer,
+  finished_pushups_reducer: FinishedPushupsReducer,
+  finished_squats_reducer: FinishedSquatsReducer
 });

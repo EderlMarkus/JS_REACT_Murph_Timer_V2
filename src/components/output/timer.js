@@ -5,10 +5,7 @@ import * as GLOBALCONST from '../const';
 import getSetTime from '../global_functions/getSetTime';
 import getTotalSets from '../global_functions/getTotalSets';
 import getTotalRounds from '../global_functions/getTotalRounds';
-import Ten from '../sound/ten.mp3';
-import Five from '../sound/five.mp3';
-import Beep from '../sound/beep.mp3';
-import BeepNext from '../sound/beepNext.mp3';
+import * as SOUNDS from '../sound/playSound';
 
 class Timer extends Component {
   interval;
@@ -23,25 +20,15 @@ class Timer extends Component {
   startTimer() {
     this.interval = setInterval(() => {
       if (this.props.currentSetTime !== 0) {
-        //if counter is 10 or five play sound (one more because of delay)
-        if (this.props.currentSetTime === 11) {
-          let audio = new Audio(Ten);
-          audio.play();
-        }
-        if (this.props.currentSetTime === 6) {
-          let audio = new Audio(Five);
-          audio.play();
-        }
-        if (this.props.currentSetTime < 5 && this.props.currentSetTime > 1) {
-          let audio = new Audio(Beep);
-          audio.play();
-        }
-        if (this.props.currentSetTime === 1) {
-          let audio = new Audio(BeepNext);
-          audio.play();
-        }
-
         this.props.setCurrentSetTime(this.props.currentSetTime - 1);
+        SOUNDS.saySeconds(this.props.currentSetTime);
+        if (this.getCurrentExercise().isComplete) {
+          SOUNDS.sayNextExercise(
+            this.props.currentSetTime,
+            8,
+            this.getCurrentExercise().getNextExercise()
+          );
+        }
       } else {
         this.handleNextSet();
       }
@@ -50,6 +37,10 @@ class Timer extends Component {
 
   checkIfSetComplete(currentSet, name, reps) {
     return currentSet === getTotalSets(name, this.props.split, reps);
+  }
+
+  checkIfLastSet(currentSet, name, reps) {
+    return currentSet + 1 >= getTotalSets(name, this.props.split, reps);
   }
 
   getCurrentExercise() {
@@ -66,8 +57,18 @@ class Timer extends Component {
             'pullups',
             this.props.pullups
           ),
+          isLastSet: this.checkIfLastSet(
+            this.props.currentSetPullups,
+            'pullups',
+            this.props.pullups
+          ),
           countSetUp: () => {
             this.props.setCurrentSetPullups(this.props.currentSetPullups + 1);
+          },
+          countRepsUp: () => {
+            this.props.setFinishedPullups(
+              this.props.finishedPullups + this.props.pullups
+            );
           },
           setSetTime: () => {
             this.setSetTime(
@@ -76,8 +77,11 @@ class Timer extends Component {
               this.props.pullups
             );
           },
-          getNextExercise: () => {
+          setNextExercise: () => {
             this.props.setCurrentExercise('pushups');
+          },
+          getNextExercise: () => {
+            return 'pushups';
           }
         };
       case 'pushups':
@@ -91,8 +95,18 @@ class Timer extends Component {
             'pushups',
             this.props.pushups
           ),
+          isLastSet: this.checkIfLastSet(
+            this.props.currentSetPushups,
+            'pushups',
+            this.props.pushups
+          ),
           countSetUp: () => {
             this.props.setCurrentSetPushups(this.props.currentSetPushups + 1);
+          },
+          countRepsUp: () => {
+            this.props.setFinishedPushups(
+              this.props.finishedPushups + this.props.pushups
+            );
           },
           setSetTime: () => {
             this.setSetTime(
@@ -101,8 +115,11 @@ class Timer extends Component {
               this.props.pushups
             );
           },
-          getNextExercise: () => {
+          setNextExercise: () => {
             this.props.setCurrentExercise('squats');
+          },
+          getNextExercise: () => {
+            return 'squats';
           }
         };
       case 'squats':
@@ -116,8 +133,18 @@ class Timer extends Component {
             'squats',
             this.props.squats
           ),
+          isLastSet: this.checkIfLastSet(
+            this.props.currentSetSquats,
+            'squats',
+            this.props.squats
+          ),
           countSetUp: () => {
             this.props.setCurrentSetSquats(this.props.currentSetSquats + 1);
+          },
+          countRepsUp: () => {
+            this.props.setFinishedSquats(
+              this.props.finishedSquats + this.props.squats
+            );
           },
           setSetTime: () => {
             this.setSetTime(
@@ -126,9 +153,12 @@ class Timer extends Component {
               this.props.squats
             );
           },
-          getNextExercise: () => {
+          setNextExercise: () => {
             //last exercise handles round change
             this.handleNextRound();
+          },
+          getNextExercise: () => {
+            return 'pullups';
           }
         };
       default:
@@ -142,21 +172,31 @@ class Timer extends Component {
       this.props.setCurrentSetPushups(0);
       this.props.setCurrentSetSquats(0);
       this.props.setCurrentExercise('pullups');
+
       this.props.setCurrentRound(this.props.currentRound + 1);
+
+      if (this.props.currentRound > getTotalRounds()) {
+        SOUNDS.sayWorkoutFinished();
+      }
     }
   }
   handleNextSet() {
     let exercise = this.getCurrentExercise();
     if (!exercise.isComplete) {
       exercise.countSetUp();
+      if (exercise.currentSet >= 1) {
+        exercise.countRepsUp();
+      }
       exercise.setSetTime();
     } else {
-      exercise.getNextExercise();
+      exercise.countRepsUp();
+      exercise.setNextExercise();
     }
   }
 
   componentDidMount() {
     this.startTimer();
+    SOUNDS.sayExercise('pullups');
   }
 
   componentWillUnmount() {
@@ -185,7 +225,10 @@ function mapStateToProps(state) {
     currentSetPushups: state.current_set_pushups_reducer.input,
     currentSetSquats: state.current_set_squats_reducer.input,
     currentExercise: state.current_exercise_reducer.input,
-    currentRound: state.current_round_reducer.input
+    currentRound: state.current_round_reducer.input,
+    finishedPullups: state.finished_pullups_reducer.input,
+    finishedPushups: state.finished_pushups_reducer.input,
+    finishedSquats: state.finished_squats_reducer.input
   };
 }
 
@@ -196,7 +239,10 @@ function mapDispatchToProps(dispatch) {
     setCurrentSetPullups: text => dispatch(ACTIONS.currentSetPullups(text)),
     setCurrentSetPushups: text => dispatch(ACTIONS.currentSetPushups(text)),
     setCurrentSetSquats: text => dispatch(ACTIONS.currentSetSquats(text)),
-    setCurrentRound: text => dispatch(ACTIONS.currentRound(text))
+    setCurrentRound: text => dispatch(ACTIONS.currentRound(text)),
+    setFinishedPullups: text => dispatch(ACTIONS.finsihedPullups(text)),
+    setFinishedPushups: text => dispatch(ACTIONS.finsihedPushups(text)),
+    setFinishedSquats: text => dispatch(ACTIONS.finsihedSquats(text))
   };
 }
 

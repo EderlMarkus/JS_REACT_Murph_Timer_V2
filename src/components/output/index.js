@@ -20,7 +20,7 @@ class Index extends Component {
     background: 'red'
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.setFadeIn('fadein');
   }
   render() {
@@ -28,7 +28,7 @@ class Index extends Component {
       <React.Fragment>
         <Container className={'wrapper ' + this.props.fadeIn}>
           <Row>
-            <Col md="12" className="mb-3">
+            <Col md="12">
               <SetInfo></SetInfo>
             </Col>
             <hr></hr>

@@ -1,13 +1,50 @@
+$primaryBGcolor: #20232a;
+$secondaryBGcolor: #282c34;
+
+$primaryFontColor: #e5e5e5;
+$secondaryFontColor: #fff;
+
+$primaryFontSize: 1.5rem;
+$secondaryFontSize: 1rem;
+
 body {
-  background: #000 !important;
-  color: #fff !important;
+  background: $primaryBGcolor !important;
+  color: $primaryFontColor !important;
   margin: 5% !important;
   .App {
     text-align: center;
   }
+
+  .range {
+    -webkit-appearance: none;
+    width: 100%;
+    background: $secondaryBGcolor;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+
+    width: 100%;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: $primaryFontSize;
+      height: $primaryFontSize;
+      background: $primaryFontColor;
+      cursor: pointer;
+    }
+
+    &::-moz-range-thumb {
+      width: $primaryFontSize;
+      height: $primaryFontSize;
+      background: $primaryFontColor;
+      cursor: pointer;
+    }
+  }
   .wrapper {
     margin-top: 10vh;
-    &.input.fadeout {
+
+    &.fadeout {
       animation-name: fadeout;
       animation-duration: 2s;
       animation-fill-mode: forwards;

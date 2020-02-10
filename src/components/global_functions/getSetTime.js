@@ -9,13 +9,13 @@ export default function getSetTime(exercise, secondsToFinish, reps) {
   let seconds;
   switch (exercise) {
     case 'pullups':
-      seconds = secondsToFinish / 3 / (100 / reps);
+      seconds = Math.floor(secondsToFinish / 3 / (100 / reps));
       break;
     case 'pushups':
-      seconds = secondsToFinish / 3 / (200 / reps);
+      seconds = Math.floor(secondsToFinish / 3 / (200 / reps));
       break;
     case 'squats':
-      seconds = secondsToFinish / 3 / (300 / reps);
+      seconds = Math.floor(secondsToFinish / 3 / (300 / reps));
       break;
     default:
       break;

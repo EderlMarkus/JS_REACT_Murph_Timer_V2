@@ -111,3 +111,24 @@ export const fadeInInput = text => {
     payload: text
   };
 };
+
+export const finsihedPullups = text => {
+  return {
+    type: ACTION_TYPES.FINISHED_PULLUPS,
+    payload: text
+  };
+};
+
+export const finsihedPushups = text => {
+  return {
+    type: ACTION_TYPES.FINISHED_PUSHUPS,
+    payload: text
+  };
+};
+
+export const finsihedSquats = text => {
+  return {
+    type: ACTION_TYPES.FINISHED_SQUATS,
+    payload: text
+  };
+};

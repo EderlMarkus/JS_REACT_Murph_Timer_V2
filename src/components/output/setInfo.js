@@ -3,7 +3,6 @@ import * as ACTIONS from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import * as GLOBALCONST from '../const';
 import getSetTime from '../global_functions/getSetTime';
 import Timer from './timer';
 import getTotalRounds from '../global_functions/getTotalRounds';
@@ -55,7 +54,6 @@ class SetInfo extends Component {
   render() {
     return (
       <React.Fragment>
-        <h3 className="text-center">Set-Info</h3>
         <Container>
           <Row>
             <h2 className="w-100 text-center">

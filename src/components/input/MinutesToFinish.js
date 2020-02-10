@@ -33,7 +33,17 @@ class MinutesToFinish extends Component {
     return (
       <Form>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Minutes to Finish</Form.Label>
+          <Form.Label>
+            Minutes to Finish: {this.props.secondsToFinish / 60}
+          </Form.Label>
+          <br></br>
+          {/* <input
+            className="range"
+            type="range"
+            min={CONST.minutesMin}
+            max={CONST.minutesMax}
+            onChange={this.handleChange.bind(this)}
+          ></input> */}
           <Form.Control
             defaultValue={CONST.initialMinutes}
             onChange={this.handleChange.bind(this)}
@@ -51,7 +61,9 @@ class MinutesToFinish extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    secondsToFinish: state.seconds_to_finish_reducer.input
+  };
 }
 
 function mapDispatchToProps(dispatch) {

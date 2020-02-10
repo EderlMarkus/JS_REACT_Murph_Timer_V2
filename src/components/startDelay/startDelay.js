@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import * as GLOBALCONST from '../const';
 import * as CONST from './const';
 import { Redirect } from 'react-router';
-import Ten from '../sound/ten.mp3';
-import Five from '../sound/five.mp3';
-import Beep from '../sound/BeepNext.mp3';
+import * as SOUNDS from '../sound/playSound';
+import * as ACTIONS from '../../store/actions/actions';
+import { connect } from 'react-redux';
 
-export default class StartDelay extends Component {
+class StartDelay extends Component {
   interval;
 
   state = {
@@ -35,20 +35,9 @@ export default class StartDelay extends Component {
   startTimer() {
     this.interval = setInterval(() => {
       if (this.state.delay !== 0) {
-        //if counter is 10 or five play sound (one more because of delay)
-        if (this.state.delay === 11) {
-          let audio = new Audio(Ten);
-          audio.play();
-        }
-        if (this.state.delay === 6) {
-          let audio = new Audio(Five);
-          audio.play();
-        }
-
+        SOUNDS.saySeconds(this.state.delay - 1);
         this.setState({ delay: this.state.delay - 1 });
       } else {
-        let audio = new Audio(Beep);
-        audio.play();
         clearInterval(this.interval);
         this.setState({ redirect: true });
         return;
@@ -57,13 +46,20 @@ export default class StartDelay extends Component {
   }
 
   componentDidMount() {
+    if (this.props.currentSetTime === 0) {
+      clearInterval(this.interval);
+      this.setState({ redirect: true });
+    }
+
     this.startTimer();
   }
   render() {
     return (
       <div style={this.style} className={'fadein'}>
         <h1 style={this.styleHeadline} className="w-100 text-center">
-          Set:
+          Workout starts in:
+        </h1>
+        <h1 style={this.styleHeadline} className="w-100 text-center">
           {this.getTimeFormat(this.state.delay)}
         </h1>
         {this.state.redirect ? <Redirect push to="/output" /> : null}
@@ -71,3 +67,31 @@ export default class StartDelay extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    secondsToFinish: state.seconds_to_finish_reducer.input,
+    currentSetTime: state.current_set_time_reducer.input,
+    adjustedTimeToFinish: state.adjusted_time_to_finish_reducer.input,
+    finishedPullups: state.finished_pullups_reducer.input,
+    finishedPushups: state.finished_pushups_reducer.input,
+    finishedSquats: state.finished_squats_reducer.input
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setSecondsToFinish: text => dispatch(ACTIONS.secondsToFinish(text)),
+    setCurrentSetTime: text => dispatch(ACTIONS.currentSetTime(text)),
+    setCurrentRound: text => dispatch(ACTIONS.currentRound(text)),
+    setAdjustedTimeToFinish: text =>
+      dispatch(ACTIONS.adjustedTimeToFinish(text)),
+    setFinishedPullups: text => dispatch(ACTIONS.finsihedPullups(text)),
+    setFinishedPushups: text => dispatch(ACTIONS.finsihedPushups(text)),
+    setFinishedSquats: text => dispatch(ACTIONS.finsihedSquats(text)),
+    setCurrentSetPullups: text => dispatch(ACTIONS.currentSetPullups(text)),
+    setCurrentSetPushups: text => dispatch(ACTIONS.currentSetPushups(text)),
+    setCurrentSetSquats: text => dispatch(ACTIONS.currentSetSquats(text))
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(StartDelay);

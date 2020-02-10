@@ -7,6 +7,22 @@ import * as CONST from './const';
 import { connect } from 'react-redux';
 
 class Split extends Component {
+  getMinMax(exercise) {
+    let retObj = { min: 1, max: 0 };
+    switch (exercise) {
+      case 'pullups':
+        retObj.max = this.props.split[0];
+        return retObj;
+      case 'pushups':
+        retObj.max = this.props.split[1];
+        return retObj;
+      case 'squats':
+        retObj.max = this.props.split[2];
+        return retObj;
+      default:
+        break;
+    }
+  }
   createOptions = (exercise, split) => {
     const options = [];
     let min;
@@ -63,7 +79,7 @@ class Split extends Component {
       <Form>
         <Form.Row>
           <Form.Group as={Col} md="4">
-            <Form.Label>Pullups</Form.Label>
+            <Form.Label>Pullups: {this.props.pullups}</Form.Label>
             <Form.Control
               onChange={this.handlePullups.bind(this)}
               defaultValue={CONST.initialReps.pullups}
@@ -71,12 +87,22 @@ class Split extends Component {
             >
               {this.createOptions('pullups', this.props.split)}
             </Form.Control>
+
+            {/* <input
+              className="range"
+              type="range"
+              min={this.getMinMax('pullups').min}
+              max={this.getMinMax('pullups').max}
+              onChange={this.handlePullups.bind(this)}
+              defaultValue={CONST.initialReps.pullups}
+            ></input> */}
+
             <Form.Text className="text-muted">
               Enter how many Pullups you can do at once
             </Form.Text>
           </Form.Group>
           <Form.Group as={Col} md="4">
-            <Form.Label>Pushups</Form.Label>
+            <Form.Label>Pushups: {this.props.pushups}</Form.Label>
             <Form.Control
               defaultValue={CONST.initialReps.pushups}
               onChange={this.handlePushups.bind(this)}
@@ -84,12 +110,22 @@ class Split extends Component {
             >
               {this.createOptions('pushups', this.props.split)}
             </Form.Control>
+
+            {/* <input
+              className="range"
+              type="range"
+              min={this.getMinMax('pushups').min}
+              max={this.getMinMax('pushups').max}
+              onChange={this.handlePushups.bind(this)}
+              defaultValue={CONST.initialReps.pushups}
+            ></input> */}
+
             <Form.Text className="text-muted">
               Enter how many Pushups you can do at once
             </Form.Text>
           </Form.Group>
           <Form.Group as={Col} md="4">
-            <Form.Label>Squats</Form.Label>
+            <Form.Label>Squats: {this.props.squats}</Form.Label>
             <Form.Control
               defaultValue={CONST.initialReps.squats}
               onChange={this.handleSquats.bind(this)}
@@ -97,6 +133,16 @@ class Split extends Component {
             >
               {this.createOptions('squats', this.props.split)}
             </Form.Control>
+
+            {/* <input
+              className="range"
+              type="range"
+              min={this.getMinMax('squats').min}
+              max={this.getMinMax('squats').max}
+              onChange={this.handleSquats.bind(this)}
+              defaultValue={CONST.initialReps.squats}
+            ></input> */}
+
             <Form.Text className="text-muted">
               Enter how many Squats you can do at once
             </Form.Text>
@@ -109,7 +155,10 @@ class Split extends Component {
 
 function mapStateToProps(state) {
   return {
-    split: state.split_reducer.input
+    split: state.split_reducer.input,
+    pullups: state.pullups_reducer.input,
+    pushups: state.pushups_reducer.input,
+    squats: state.squats_reducer.input
   };
 }
 

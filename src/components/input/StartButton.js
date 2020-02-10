@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import * as ACTIONS from '../../store/actions/actions';
 import { connect } from 'react-redux';
-import * as GLOBALCONST from '../const';
 import getSetTime from '../global_functions/getSetTime';
 
 class StartButton extends Component {

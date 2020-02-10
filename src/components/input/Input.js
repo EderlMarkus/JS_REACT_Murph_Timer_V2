@@ -3,7 +3,6 @@ import MinutesToFinish from './MinutesToFinish';
 import Split from './Split';
 import Reps from './Reps';
 import StartButton from './StartButton';
-import * as ACTIONS from '../../store/actions/actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +11,7 @@ class Input extends Component {
     marginTop: '10vh'
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ fadeIn: 'fadein' });
   }
   render() {
