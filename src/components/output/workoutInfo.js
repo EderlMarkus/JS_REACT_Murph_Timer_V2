@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import * as GLOBALCONST from '../const';
 import { Redirect } from 'react-router';
 import ReactNoSleep from 'react-no-sleep';
+import * as PROPSCONST from '../../store/const';
 
 class WorkoutInfo extends Component {
   state = {
@@ -41,14 +42,14 @@ class WorkoutInfo extends Component {
     return;
   }
 
-  getElapsedTime() {
-    this.ellapsedTime = setInterval(() => {
-      this.setState({ elapsedSeconds: this.state.elapsedSeconds + 1 });
-    }, 1000);
-  }
+  // getElapsedTime() {
+  //   this.ellapsedTime = setInterval(() => {
+  //     this.setState({ elapsedSeconds: this.state.elapsedSeconds + 1 });
+  //   }, 1000);
+  // }
 
   componentDidMount() {
-    this.getElapsedTime();
+    // this.getElapsedTime();
     //when starting CurrentRound is 1
     this.props.setCurrentRound(1);
     if (this.props.currentSetTime === 0) {
@@ -134,7 +135,7 @@ class WorkoutInfo extends Component {
           <hr></hr>
           <Row>
             <Col className="text-center">
-              <h4>Elapsed: {this.getTimeFormat(this.state.elapsedSeconds)}</h4>
+              <h4>Elapsed: {this.getTimeFormat(this.props.elapsedTime)}</h4>
               <h4>
                 Finish: {this.getTimeFormat(this.props.adjustedTimeToFinish)}
               </h4>
@@ -148,30 +149,11 @@ class WorkoutInfo extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    secondsToFinish: state.seconds_to_finish_reducer.input,
-    currentSetTime: state.current_set_time_reducer.input,
-    adjustedTimeToFinish: state.adjusted_time_to_finish_reducer.input,
-    finishedPullups: state.finished_pullups_reducer.input,
-    finishedPushups: state.finished_pushups_reducer.input,
-    finishedSquats: state.finished_squats_reducer.input
-  };
+  return PROPSCONST.mapStateToProps(state);
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    setSecondsToFinish: text => dispatch(ACTIONS.secondsToFinish(text)),
-    setCurrentSetTime: text => dispatch(ACTIONS.currentSetTime(text)),
-    setCurrentRound: text => dispatch(ACTIONS.currentRound(text)),
-    setAdjustedTimeToFinish: text =>
-      dispatch(ACTIONS.adjustedTimeToFinish(text)),
-    setFinishedPullups: text => dispatch(ACTIONS.finsihedPullups(text)),
-    setFinishedPushups: text => dispatch(ACTIONS.finsihedPushups(text)),
-    setFinishedSquats: text => dispatch(ACTIONS.finsihedSquats(text)),
-    setCurrentSetPullups: text => dispatch(ACTIONS.currentSetPullups(text)),
-    setCurrentSetPushups: text => dispatch(ACTIONS.currentSetPushups(text)),
-    setCurrentSetSquats: text => dispatch(ACTIONS.currentSetSquats(text))
-  };
+  return PROPSCONST.mapDispatchToProps(dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutInfo);

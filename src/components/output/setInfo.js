@@ -6,22 +6,12 @@ import Row from 'react-bootstrap/Row';
 import getSetTime from '../global_functions/getSetTime';
 import Timer from './timer';
 import getTotalRounds from '../global_functions/getTotalRounds';
+import getTotalSets from '../global_functions/getTotalSets';
+import * as PROPSCONST from '../../store/const';
+
 class SetInfo extends Component {
   setSetTime(exercise, secondsToFinish, reps) {
     this.props.setCurrentSetTime(getSetTime(exercise, secondsToFinish, reps));
-  }
-
-  getTotalSets(exercise) {
-    switch (exercise) {
-      case 'pullups':
-        return Math.ceil(this.props.split[0] / this.props.pullups);
-      case 'pushups':
-        return Math.ceil(this.props.split[1] / this.props.pushups);
-      case 'squats':
-        return Math.ceil(this.props.split[2] / this.props.squats);
-      default:
-        break;
-    }
   }
 
   getRepsOfCurrentExercise(exercise) {
@@ -70,19 +60,19 @@ class SetInfo extends Component {
           <Row>
             <p className="w-100 text-center">
               Pullups: {this.props.currentSetPullups} /{' '}
-              {this.getTotalSets('pullups')}
+              {getTotalSets('pullups', this.props.split, this.props.pullups)}
             </p>
           </Row>
           <Row>
             <p className="w-100 text-center">
               Pushups: {this.props.currentSetPushups} /{' '}
-              {this.getTotalSets('pushups')}
+              {getTotalSets('pushups', this.props.split, this.props.pushups)}
             </p>
           </Row>
           <Row>
             <p className="w-100 text-center">
               Squats: {this.props.currentSetSquats} /{' '}
-              {this.getTotalSets('squats')}
+              {getTotalSets('squats', this.props.split, this.props.squats)}
             </p>
           </Row>
           <Row>
@@ -95,27 +85,11 @@ class SetInfo extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    split: state.split_reducer.input,
-    pullups: state.pullups_reducer.input,
-    pushups: state.pushups_reducer.input,
-    squats: state.squats_reducer.input,
-    secondsToFinish: state.seconds_to_finish_reducer.input,
-    currentSetTime: state.current_set_time_reducer.input,
-    currentSetPullups: state.current_set_pullups_reducer.input,
-    currentSetPushups: state.current_set_pushups_reducer.input,
-    currentSetSquats: state.current_set_squats_reducer.input,
-    currentExercise: state.current_exercise_reducer.input,
-    currentRound: state.current_round_reducer.input
-  };
+  return PROPSCONST.mapStateToProps(state);
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    setCurrentSetTime: text => dispatch(ACTIONS.currentSetTime(text)),
-    setCurrentExercise: text => dispatch(ACTIONS.currentExercise(text)),
-    setCurrentSetPullups: text => dispatch(ACTIONS.currentSetPullups(text))
-  };
+  return PROPSCONST.mapDispatchToProps(dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SetInfo);

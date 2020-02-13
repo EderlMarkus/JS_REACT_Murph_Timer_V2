@@ -53,6 +53,11 @@ class StartDelay extends Component {
 
     this.startTimer();
   }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
   render() {
     return (
       <div style={this.style} className={'fadein'}>

@@ -12,6 +12,8 @@ import pullups_next from '../sound/pullups_next.mp3';
 import pushups_next from '../sound/pushups_next.mp3';
 import squats_next from '../sound/squats_next.mp3';
 import workout_finished from '../sound/workout_finished.mp3';
+import last_set from '../sound/last_set.mp3';
+
 export function saySeconds(seconds) {
   //if counter is 10 or five play sound (one more because of delay)
   let audio;
@@ -60,28 +62,31 @@ export function sayExercise(exercise) {
   audio.play();
 }
 
-export function sayNextExercise(TotalSeconds, BreakPointSeconds, exercise) {
-  if (TotalSeconds === BreakPointSeconds) {
-    let audio;
-    switch (exercise) {
-      case 'pullups':
-        audio = pullups_next;
-        break;
-      case 'pushups':
-        audio = pushups_next;
-        break;
-      case 'squats':
-        audio = squats_next;
-        break;
-      default:
-        break;
-    }
-    audio = new Audio(audio);
-    audio.play();
+export function sayNextExercise(exercise) {
+  let audio;
+  switch (exercise) {
+    case 'pullups':
+      audio = pullups_next;
+      break;
+    case 'pushups':
+      audio = pushups_next;
+      break;
+    case 'squats':
+      audio = squats_next;
+      break;
+    default:
+      break;
   }
+  audio = new Audio(audio);
+  audio.play();
 }
 
 export function sayWorkoutFinished() {
   let audio = new Audio(workout_finished);
+  audio.play();
+}
+
+export function saySetWillBeLast() {
+  let audio = new Audio(last_set);
   audio.play();
 }
