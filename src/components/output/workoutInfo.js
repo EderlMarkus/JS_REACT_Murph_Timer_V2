@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as ACTIONS from '../../store/actions/actions';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,6 +11,8 @@ import * as GLOBALCONST from '../const';
 import { Redirect } from 'react-router';
 import ReactNoSleep from 'react-no-sleep';
 import * as PROPSCONST from '../../store/const';
+import { withRouter } from 'react-router';
+import { browserHistory } from 'history';
 
 class WorkoutInfo extends Component {
   state = {
@@ -42,14 +46,7 @@ class WorkoutInfo extends Component {
     return;
   }
 
-  // getElapsedTime() {
-  //   this.ellapsedTime = setInterval(() => {
-  //     this.setState({ elapsedSeconds: this.state.elapsedSeconds + 1 });
-  //   }, 1000);
-  // }
-
   componentDidMount() {
-    // this.getElapsedTime();
     //when starting CurrentRound is 1
     this.props.setCurrentRound(1);
     if (this.props.currentSetTime === 0) {
@@ -156,4 +153,7 @@ function mapDispatchToProps(dispatch) {
   return PROPSCONST.mapDispatchToProps(dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WorkoutInfo);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, mapDispatchToProps)
+)(WorkoutInfo);

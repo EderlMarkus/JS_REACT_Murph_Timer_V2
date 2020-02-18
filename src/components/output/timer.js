@@ -27,7 +27,10 @@ class Timer extends Component {
   }
 
   checkIfLastRound() {
-    return this.props.currentRound === getTotalRounds(this.props.split);
+    return (
+      this.props.currentRound ===
+      getTotalRounds(this.props.versions, this.props.split)
+    );
   }
 
   checkIfLastSet() {
@@ -81,7 +84,9 @@ class Timer extends Component {
   }
 
   checkIfFirstSecondOfSet() {
-    return this.getCurrentExercise().getSetTime() === this.props.currentSetTime;
+    return (
+      this.getCurrentExercise().getSetTime() - 1 === this.props.currentSetTime
+    );
   }
 
   startTimer() {

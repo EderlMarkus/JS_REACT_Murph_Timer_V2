@@ -23,6 +23,7 @@ class Index extends Component {
   componentDidMount() {
     this.props.setFadeIn('fadein');
   }
+
   render() {
     return (
       <React.Fragment>

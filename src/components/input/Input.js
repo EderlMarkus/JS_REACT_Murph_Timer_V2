@@ -3,6 +3,7 @@ import MinutesToFinish from './MinutesToFinish';
 import Split from './Split';
 import Reps from './Reps';
 import StartButton from './StartButton';
+import Version from './Version';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -20,6 +21,7 @@ class Input extends Component {
         <MinutesToFinish></MinutesToFinish>
         <Split></Split>
         <Reps></Reps>
+        <Version></Version>
         <Link to="/delay">
           <StartButton></StartButton>
         </Link>

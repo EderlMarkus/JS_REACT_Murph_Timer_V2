@@ -17,7 +17,8 @@ export function mapStateToProps(state) {
     finishedPushups: state.finished_pushups_reducer.input,
     finishedSquats: state.finished_squats_reducer.input,
     adjustedTimeToFinish: state.adjusted_time_to_finish_reducer.input,
-    elapsedTime: state.elapsed_time_reducer.input
+    elapsedTime: state.elapsed_time_reducer.input,
+    versions: state.versions_reducer.input
   };
 }
 
@@ -34,6 +35,7 @@ export function mapDispatchToProps(dispatch) {
     setFinishedSquats: text => dispatch(ACTIONS.finsihedSquats(text)),
     setAdjustedTimeToFinish: text =>
       dispatch(ACTIONS.adjustedTimeToFinish(text)),
-    setElapsedTime: text => dispatch(ACTIONS.elapsedTime(text))
+    setElapsedTime: text => dispatch(ACTIONS.elapsedTime(text)),
+    setVersions: text => dispatch(ACTIONS.versions(text))
   };
 }

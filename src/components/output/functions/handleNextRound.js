@@ -4,7 +4,7 @@ import getTotalRounds from '../../global_functions/getTotalRounds';
 export default function handleNextRound(parentElement) {
   if (
     parentElement.props.currentRound !==
-    getTotalRounds(parentElement.props.split)
+    getTotalRounds(parentElement.props.versions, parentElement.props.split)
   ) {
     parentElement.props.setCurrentSetPullups(0);
     parentElement.props.setCurrentSetPushups(0);
@@ -15,7 +15,7 @@ export default function handleNextRound(parentElement) {
 
     if (
       parentElement.props.currentRound >
-      getTotalRounds(parentElement.props.split)
+      getTotalRounds(parentElement.props.versions, parentElement.props.split)
     ) {
       SOUNDS.sayWorkoutFinished();
     }

@@ -54,7 +54,7 @@ class SetInfo extends Component {
           <Row className="justify-content-md-center">
             <h5 className="w-100 text-center">
               Round {this.props.currentRound} of{' '}
-              {getTotalRounds(this.props.split)}
+              {getTotalRounds(this.props.versions, this.props.split)}
             </h5>
           </Row>
           <Row>

@@ -17,6 +17,7 @@ import FadeInInputReducer from './fadeInInput_reducer';
 import FinishedPullupsReducer from './finishedPullupsReducer';
 import FinishedPushupsReducer from './finishedPushupsReducer';
 import FinishedSquatsReducer from './finishedSquatsReducer';
+import VersionsReducer from './versions_reducer';
 
 import { combineReducers } from 'redux';
 
@@ -39,5 +40,6 @@ export const rootReducer = combineReducers({
   fade_in_input_reducer: FadeInInputReducer,
   finished_pullups_reducer: FinishedPullupsReducer,
   finished_pushups_reducer: FinishedPushupsReducer,
-  finished_squats_reducer: FinishedSquatsReducer
+  finished_squats_reducer: FinishedSquatsReducer,
+  versions_reducer: VersionsReducer
 });

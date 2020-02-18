@@ -132,3 +132,10 @@ export const finsihedSquats = text => {
     payload: text
   };
 };
+
+export const versions = text => {
+  return {
+    type: ACTION_TYPES.VERSIONS,
+    payload: text
+  };
+};

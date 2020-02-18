@@ -1,3 +1,3 @@
-export default function getTotalRounds(split) {
-  return 100 / split[0];
+export default function getTotalRounds(version, split) {
+  return version / split[0];
 }

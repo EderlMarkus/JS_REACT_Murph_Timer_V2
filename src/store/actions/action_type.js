@@ -26,3 +26,6 @@ export const FINISHED_SQUATS = 'FINISHED_SQUATS';
 
 //Animatoins
 export const FADEIN_INPUT = 'FADEIN_INPUT';
+
+//Version of Murph (25, 50, 75 or 100% Murph)
+export const VERSIONS = 'VERSIONS';
