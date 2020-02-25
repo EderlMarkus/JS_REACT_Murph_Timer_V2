@@ -21,6 +21,6 @@ export const initialReps = {
 };
 
 //Versions
-export const versions = [25, 50, 75, 100];
+export const versions = [50, 100];
 //initial version is last entry in versions-array
 export const initialVersion = versions[versions.length - 1];

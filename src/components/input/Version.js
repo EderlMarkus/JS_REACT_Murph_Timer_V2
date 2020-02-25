@@ -8,6 +8,9 @@ import Col from 'react-bootstrap/Col';
 import { connect } from 'react-redux';
 
 class Version extends Component {
+  componentDidMount() {
+    this.props.setVersions(10);
+  }
   createOptions() {
     const options = [];
     CONST.versions.forEach(version => {
