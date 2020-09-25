@@ -9,19 +9,22 @@ import { connect } from 'react-redux';
 
 class Index extends Component {
   green = {
-    background: 'green'
+    background: 'green',
   };
 
   blue = {
-    background: 'blue'
+    background: 'blue',
   };
 
   red = {
-    background: 'red'
+    background: 'red',
   };
 
   componentDidMount() {
     this.props.setFadeIn('fadein');
+    window.onbeforeunload = function () {
+      return 'Training abbrechen?';
+    };
   }
 
   render() {
@@ -45,13 +48,13 @@ class Index extends Component {
 
 function mapStateToProps(state) {
   return {
-    fadeIn: state.fade_in_input_reducer.input
+    fadeIn: state.fade_in_input_reducer.input,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    setFadeIn: text => dispatch(ACTIONS.fadeInInput(text))
+    setFadeIn: (text) => dispatch(ACTIONS.fadeInInput(text)),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
